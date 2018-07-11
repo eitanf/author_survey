@@ -1,0 +1,136 @@
+[[AdvancedFormat]]
+
+[[ED:State]]
+[[ED:Gender]]
+[[ED:SawSurvey:1]]
+
+[[Block:history]]
+
+[[Question:MC:Dropdown]]
+About how many months did it take to research and write this paper?
+[[Choices]]
+1-3
+4-6
+7-9
+10-12
+over a year.
+
+[[Question:TE]]
+How many conferences/journals was it submitted to prior to this publication?
+
+[[Question:TE]]
+Please enter there names
+
+[[Block:rebuttal]]
+Rebuttal (the existence of this subsection depends on the conference supporting rebuttal, or a positive answer to the first question)
+
+[[Question:MC:SingleAnswer:Horizontal]]
+Did the conference allow you to address reviewers concerns before final acceptance notice?
+[[Choices]]
+Y
+N
+
+[[Question:MC:SingleAnswer:Horizontal]]
+Did you take advantage of the opportunity to respond to reviews?
+[[Choices]]
+Y
+N
+
+[[Question:MC:SingleAnswer:Horizontal]]
+Did you find the response process helpful? Why?
+[[Choices]]
+Y
+N
+[[Text]]
+[[Question:TE]]
+Why?
+
+[[Block:quality]]
+Review quality
+
+[[Question:MC:Dropdown]]
+How many reviews did this paper receive?
+[[Choices]]
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10+
+
+//Recode values needed
+
+For each review, please answer the following questions: 
+
+[[Question:MC:Dropdown]]
+About how long was the review?
+[[Choices]]
+1-2 paragraphs
+Half a page
+A page
+Multiple pages”
+
+[[Question:MC:Dropdown]]
+How well did the reviewer understand your paper, in your estimation?
+[[Choices]]
+Perfectly
+Missed some minor points
+Misunderstood major points
+Probably didn’t read it
+
+[[Question:MC:Dropdown]]
+How helpful did you find this review for improving the paper?
+[[Choices]]
+Very helpful
+Somewhat helpful
+Not at all”
+
+[[Question:MC:Dropdown]]
+How fair would you say the review was?
+Very unfair
+Unfair
+Somewhat unfair
+fair
+
+[[Text]]
+Please locate the review’s grades for each of these categories and match it to one of the given choices / values. If a category wasn’t used for the review, please choose “N/A”. Conversely, you can just paste the complete text of the review in the “comments” section and we’ll fill in the details for you).
+
+[[Question:MC:Dropdown]]
+Overall acceptance recommendation:
+[[Choices]]
+Strong accept
+Accept
+Weak Accept
+Neutral
+Weak Reject
+Reject
+Strong Reject
+
+//Text implementation: ?
+Overall grade (if different than above, or more applicable):
+[number] out of [number] / “N/A”
+Technical soundness:
+[number] out of [number] / “N/A”
+Presentation / readability:
+[number] out of [number] / “N/A”
+Impact / significance / timeliness:
+[number] out of [number] / “N/A”
+Originality / novelty:
+[number] out of [number] / “N/A”
+Relevance to conference’s scope:
+[number] out of [number] / “N/A”
+Reviewer confidence:
+None / Weak / Familiar with the subject / Very familiar with the subject / Expert
+Comments and clarifications (or text of review) 
+Free-form text box
+
+
+[[Block:demographic]]
+
+[[Block:freeform]]
+
+[[Block:end]]

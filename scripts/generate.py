@@ -3,8 +3,12 @@
 import csv
 import string
 from pdfrw import PdfReader
+import json
 
-fields = ['FirstName', 'LastName', 'PrimaryEmail', 'ExternalDataReference', 'EmbeddedDataA', 'EmbeddedDataB']
+paperpath = '../sys-papers/'
+datapath = '../dat.csv'
+confpath = '../conf/'
+fields = ['FirstName', 'LastName', 'PrimaryEmail', 'NumPapers', 'ConferenceName1', 'PaperName1', 'ConferenceName2', 'PaperName2', 'ConferenceName3', 'PaperName3']
 ##Takes a dictionary that contains the correct fields and writes to the output file
 def write(author_dict, out):
     with open(out, mode="w", encoding="utf-8") as csvfile:
@@ -20,16 +24,15 @@ def read_csv(in_file):
         authors = list(reader)
     return authors
 
-def grab_paper_name_text(key):
-    with open("sys-papers/" + key + ".txt", mode = "r", encoding = "utf-8") as f:
-        content = f.readlines()
-        title = content[2] + content[3]
-    print(title)
-    return title
+def grab_paper_name(key):
+    conf = key.split('_')[0]
+    with open(confpath + conf + ".json", mode = "r", encoding = "utf-8") as f:
+        dat = json.load(f)
+        papers = dat['papers']
+        p = next(pap for pap in papers if pap['key'] == key)
+        title = p['title']
+        return title
 
-def grab_paper_name_pdf(key):
-    reader = PdfReader("sys-papers/" + key + ".pdf")
-    
 ##Creates correct dict from a raw data dictionary 
 def create(in_dict):
     out = {}
@@ -57,19 +60,16 @@ def create(in_dict):
     out['FirstName'] = first_name
     out['LastName'] = last_name
     out['PrimaryEmail'] = emails[0]
-    out['ExternalDataReference'] = '' #Add exn here at some point...
-    out['EmbeddedDataA'] = len(papers)
+    out['NumPapers'] = len(papers)
     on = 1
-    alph_upper =  list(string.ascii_uppercase)
     for p in papers: #External data comes in pairs of two, eg: B, C then D, E.... first is always paper, second is name
-        out['EmbeddedData' + alph_upper[on]] = p
-        on = on + 1
-       ## out['EmbeddedData' + alph_upper[on]] = grab_paper_name(p)
+        out['ConferenceName' + str(on)] = p.split("_")[0]
+        out['PaperName' + str(on)] = grab_paper_name(p)
         on = on + 1
 
     return out
-authors = read_csv("dat.csv")
-create(authors[10])
+authors = read_csv(datapath)
+#print(create(authors[10]))
 
 #test get 100 into csv file
 out_dicts = []

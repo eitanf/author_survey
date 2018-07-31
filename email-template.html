@@ -1,0 +1,43 @@
+<p dir="ltr">Dear Dr. ${m://LastName},</p>
+&nbsp;
+
+<p dir="ltr">My name is Eitan Frachtenberg, and I&rsquo;m a visiting professor of computer science at Reed College. My team is currently investigating the peer-review process of computer science conferences, particularly in the systems area. The goal of the study is to identify and understand variations in the peer review-process among different conferences, and some of their effects on the author&rsquo;s experience.</p>
+&nbsp;
+<script>
+  var numPapers = parseInt("${e://Field/NumPapers}");
+  var confs = ["${e://Field/ConferenceName1}", "${e://Field/ConferenceName2}", "${e://Field/ConferenceName3}", "${e://Field/ConferenceName4}", "${e://Field/ConferenceName5}", "${e://Field/ConferenceName6}", "${e://Field/ConferenceName7}", "${e://Field/ConferenceName8}", "${e://Field/ConferenceName9}", "${e://Field/ConferenceName10}", "${e://Field/ConferenceName11}", "${e://Field/ConferenceName12}", "${e://Field/ConferenceName13}", "${e://Field/ConferenceName14}", "${e://Field/ConferenceName15}"];
+  var papers = ["${e://Field/PaperName1}", "${e://Field/PaperName2}", "${e://Field/PaperName3}", "${e://Field/PaperName4}", "${e://Field/PaperName5}", "${e://Field/PaperName6}", "${e://Field/PaperName7}", "${e://Field/PaperName8}", "${e://Field/PaperName9}", "${e://Field/PaperName10}", "${e://Field/PaperName11}", "${e://Field/PaperName12}", "${e://Field/PaperName13}", "${e://Field/PaperName14}", "${e://Field/PaperName15}"] 
+  var outStr = "";
+  for(var i = 0; i < numPapers; i++){
+    pap = papers[i];
+    conf = confs[i];
+    outStr += "&quot;" + pap + "&quot;";
+    outStr += " ";
+    outStr += "(in " + conf + ")";
+    if(i !== numPapers.length - 1){
+      outStr += ", ";
+    }
+  }
+  var t = document.createTextNode(outStr);
+  document.getElementById("insert").appendChild(t);
+</script>
+<p dir="ltr">Our records show that you&rsquo;ve authored the following papers from our data set during 2017: <span id="insert"></span></p>
+<p dir="ltr">We&rsquo;d like to invite you to take part in our study by answering just a few questions about your experience publishing these papers. In appreciation of your time (about 5-10 minutes), you&rsquo;ll be eligible to enter a drawing for 5 Amazon gift cards (valued at $100 each).</p>
+&nbsp;
+
+<p dir="ltr">All individual survey responses will remain confidential, and your personally identifying information (including email address) will never be shared with any other party. We do plan to publish the survey results, but with no identifying information about the respondents.</p>
+&nbsp;
+
+<p dir="ltr">Please direct all your questions to author-survey@reed.edu</p>
+
+<div>&nbsp;</div>
+
+<p>Follow this link to the Survey: Test Survey<br />
+${bleh blahl://SurveyLink?d=Take the Survey}</p>
+
+<p>Or copy and paste the URL below into your internet browser:<br />
+${l://SurveyURL}</p>
+
+<p>Follow the link to opt out of future emails:<br />
+${l://OptOutLink?d=Click here to unsubscribe}</p>
+
